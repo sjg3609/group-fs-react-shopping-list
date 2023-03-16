@@ -2,3 +2,17 @@ main {
   width: 90%;
   margin: auto;
 }
+
+.shoppingItem {
+  border: 2px solid gray;
+  border-radius: 4px;
+  width: 10%;
+  max-height: auto;
+  margin: 10px;
+  text-align: center;
+}
+
+#shoppingList {
+  display: flex;
+  flex-wrap: wrap;
+}

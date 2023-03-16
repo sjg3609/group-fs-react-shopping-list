@@ -48,14 +48,16 @@ function ShoppingList() {
                 <input type="submit" />
             </form>
             <h1>Shopping List:</h1>
-            {
-                shoppingListArray.map((item) => (
-                    <div className="shoppingItem">
-                        <h2>{item.name}</h2>
-                        <p>{item.quantity} {item.unit}</p>
-                    </div>
-                ))
-            }
+            <div id="shoppingList">
+                {
+                    shoppingListArray.map((item) => (
+                        <div className="shoppingItem">
+                            <h3>{item.name}</h3>
+                            <p>{item.quantity} {item.unit}</p>
+                        </div>
+                    ))
+                }
+            </div>
         </div>
     );
         
