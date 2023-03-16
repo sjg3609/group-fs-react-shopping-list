@@ -19,7 +19,7 @@ function ShoppingList() {
     const addShoppingItem = (event) => {
         event.preventDefault();
         axios.post('/shopping-list', {
-            item: itemName,
+            name: itemName,
             quantity: itemQuantity,
             unit: itemUnit,
         }).then((response) => {
@@ -42,9 +42,9 @@ function ShoppingList() {
         <div>
             <h1>Add an Item</h1>
             <form onSubmit={addShoppingItem}>
-                <input type="text" value={itemName} />
-                <input type="number" value={itemQuantity} />
-                <input type="text" value={itemUnit} />
+                <input type="text" value={itemName} onChange={(event) => setItemName(event.target.value)} />
+                <input type="number" value={itemQuantity} onChange={(event) => setItemQuantity(event.target.value)} />
+                <input type="text" value={itemUnit} onChange={(event) => setItemUnit(event.target.value)}/>
                 <input type="submit" />
             </form>
             <h1>Shopping List:</h1>
@@ -52,7 +52,7 @@ function ShoppingList() {
                 shoppingListArray.map((item) => (
                     <div className="shoppingItem">
                         <h2>{item.name}</h2>
-                        <p>{item.quanity} {item.unit}</p>
+                        <p>{item.quantity} {item.unit}</p>
                     </div>
                 ))
             }
