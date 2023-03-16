@@ -12,4 +12,19 @@ router.get('/', (req, res) => {
     })
 });
 
+router.post('/', (req, res) => {
+    let name = req.body.name;
+    let quantity = req.body.quantity;
+    let unit = req.body.unit;
+    const queryText = `
+    INSERT INTO "shopping-list" ("name", "quantity", "unit") 
+    VALUES ($1, $2, $3);`;
+    pool.query(queryText, [name, quantity, unit]).then((result) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(`Error in POST for database query ${error}`);
+        res.sendStatus(500);
+    })
+});
+
 module.exports = router;
