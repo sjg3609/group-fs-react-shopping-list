@@ -42,10 +42,11 @@ function ShoppingList() {
         <div>
             <h1>Add an Item</h1>
             <form onSubmit={addShoppingItem}>
-                <input type="text" value={itemName} onChange={(event) => setItemName(event.target.value)} />
-                <input type="number" value={itemQuantity} onChange={(event) => setItemQuantity(event.target.value)} />
-                <input type="text" value={itemUnit} onChange={(event) => setItemUnit(event.target.value)}/>
-                <input type="submit" />
+                <input type="text" value={itemName} onChange={(event) => setItemName(event.target.value)} placeholder="Item"/>
+                <input type="number" value={itemQuantity} onChange={(event) => setItemQuantity(event.target.value)} placeholder="Quantity"/>
+                <input type="text" value={itemUnit} onChange={(event) => setItemUnit(event.target.value)} placeholder="Units"/>
+                <br/>
+                <input type="submit" value="Save"/>
             </form>
             <h1>Shopping List:</h1>
             <div id="shoppingList">
