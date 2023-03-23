@@ -5,7 +5,8 @@ CREATE TABLE shopping_list (
     "id" SERIAL PRIMARY KEY,
     "name" VARCHAR(80) NOT NULL,
     "quantity" NUMERIC(6,2) NOT NULL,
-    "unit" VARCHAR(20)
+    "unit" VARCHAR(20),
+    "purchased" BOOLEAN DEFAULT 'false'
 );
 
 INSERT INTO "shopping-list" ("name", "quantity", "unit")

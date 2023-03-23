@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import ShoppingItem from './ShoppingItem';
 
 function ShoppingList() {
     let [itemName, setItemName] = useState('');
@@ -49,13 +50,16 @@ function ShoppingList() {
                 <input type="submit" value="Save"/>
             </form>
             <h1>Shopping List:</h1>
+            <button>Reset</button>
+            <button>Clear All</button>
             <div id="shoppingList">
                 {
                     shoppingListArray.map((item) => (
-                        <div className="shoppingItem">
-                            <h3>{item.name}</h3>
-                            <p>{item.quantity} {item.unit}</p>
-                        </div>
+                        <ShoppingItem 
+                            key = {item.id}
+                            item = {item}
+                            fetchShoppingList = {fetchShoppingList}
+                        />
                     ))
                 }
             </div>
