@@ -10,4 +10,4 @@ CREATE TABLE shopping_list (
 );
 
 INSERT INTO "shopping-list" ("name", "quantity", "unit")
-VALUES ('Apples', 1, 'lbs'), ('Cereal', 2, 'boxes');
+VALUES ('Apples', 1, 'lbs'), ('Cereal', 2, 'boxes'), ('Milk', 3, 'gallons'), ('Eggs', 2, 'cartons');

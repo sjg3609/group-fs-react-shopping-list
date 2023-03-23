@@ -10,6 +10,7 @@ main {
   max-height: auto;
   margin: 10px;
   text-align: center;
+  padding-bottom: 5px;
 }
 
 #shoppingList {
