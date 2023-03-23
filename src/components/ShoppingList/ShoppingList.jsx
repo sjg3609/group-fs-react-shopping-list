@@ -35,9 +35,32 @@ function ShoppingList() {
         
     }
 
+    const resetItems = (e) => {
+        axios.put('/shopping-list/reset').then((response) => {
+            console.log(response);
+            fetchShoppingList();
+        }).catch((error) => {
+            console.log('Error in resetItems ' + error);
+            alert('Something went wrong.');
+        })
+    }    
+
+    
+    
     useEffect(() => {
         fetchShoppingList();
     }, [])
+
+    const clearAll = (e) => {
+        axios.delete(`/shopping-list`).then((response) => {
+            console.log(response);
+            fetchShoppingList();
+        }).catch((error) => {
+            console.log(`Error in clearAll, ${error}`);
+            alert('Something went wrong in clearAll!');
+        });
+    }
+
 
     return (
         <div>
@@ -50,8 +73,8 @@ function ShoppingList() {
                 <input type="submit" value="Save"/>
             </form>
             <h1>Shopping List:</h1>
-            <button>Reset</button>
-            <button>Clear All</button>
+            <button onClick={ (e) => resetItems(e)}>Reset</button>
+            <button onClick={(e) => {clearAll(e)}}>Clear All</button>
             <div id="shoppingList">
                 {
                     shoppingListArray.map((item) => (

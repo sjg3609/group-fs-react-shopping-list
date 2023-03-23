@@ -52,7 +52,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
     let deleteId = req.params.id;
-    const queryText = `DELETE from "shopping-list" WHERE "id" = $1;`
+    const queryText = `DELETE from "shopping-list" WHERE "id" = $1;`;
     pool.query(queryText, [deleteId]).then((result) => {
         res.sendStatus(200);
     }).catch((error) => {
@@ -61,8 +61,8 @@ router.delete('/:id', (req, res) => {
     })
 });
 
-router.delete('/clear', (req, res) => {
-    const queryText = `DELETE from "shopping-list";`
+router.delete('/', (req, res) => {
+    const queryText = `DELETE FROM "shopping-list";`;
     pool.query(queryText).then((result) => {
         res.sendStatus(200);
     }).catch((error) => {
