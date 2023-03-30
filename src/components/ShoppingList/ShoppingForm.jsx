@@ -1,5 +1,7 @@
 import axios from 'axios';
 import {useState, useEffect} from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 function ShoppingListForm({fetchShoppingList}) {
 
@@ -26,13 +28,14 @@ function ShoppingListForm({fetchShoppingList}) {
     }
 
     return (
-        <form onSubmit={addShoppingItem}>
-            <input type="text" value={itemName} onChange={(event) => setItemName(event.target.value)} placeholder="Item"/>
-            <input type="number" value={itemQuantity} onChange={(event) => setItemQuantity(event.target.value)} placeholder="Quantity"/>
-            <input type="text" value={itemUnit} onChange={(event) => setItemUnit(event.target.value)} placeholder="Units"/>
-            <br/>
-            <input type="submit" value="Save"/>
-        </form>
+        <div className="ShoppingForm">
+            <Box sx={{'& .MuiTextField-root': { m: 2, width: '25ch' },}} component="form" onSubmit={addShoppingItem}>
+                <TextField variant="standard" value={itemName} onChange={(event) => setItemName(event.target.value)} placeholder="Item"/>
+                <TextField type="number" variant="standard" value={itemQuantity} onChange={(event) => setItemQuantity(event.target.value)} placeholder="Quantity"/>
+                <TextField variant="standard" value={itemUnit} onChange={(event) => setItemUnit(event.target.value)} placeholder="Units"/>
+                <TextField type="submit" size="small" value="Save"/>
+            </Box>
+        </div>
     )
 }
 

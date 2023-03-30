@@ -42,7 +42,7 @@ function ShoppingList() {
 
 
     return (
-        <div>
+        <div className="fullShoppingList">
             <h1>Add an Item</h1>
                 <ShoppingListForm 
                     fetchShoppingList={fetchShoppingList}

@@ -16,4 +16,15 @@ main {
 #shoppingList {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.fullShoppingList {
+  text-align: center;
+
+}
+
+.ShoppingForm {
+  text-align: center;
+
 }
