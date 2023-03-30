@@ -3,7 +3,7 @@ import axios from 'axios';
 import ShoppingItem from './ShoppingItem';
 import ShoppingListForm from './ShoppingForm';
 import Grid from '@mui/material/Grid';
-import { Container } from '@mui/material';
+import Container from '@mui/material/Container';
 
 function ShoppingList() {
     
@@ -53,7 +53,7 @@ function ShoppingList() {
             <button onClick={ (e) => resetItems(e)}>Reset</button>
             <button onClick={(e) => {clearAll(e)}}>Clear All</button>
             <Container>
-                <Grid item xs={12} container spacing={{ xs: 2, md: 3 }}
+                <Grid  container spacing={2}
                     direction="row"
                     justifyContent="flex-start"
                     alignItems="center"

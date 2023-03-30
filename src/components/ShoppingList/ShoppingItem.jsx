@@ -31,7 +31,8 @@ function ShoppingItem({ item, fetchShoppingList }) {
     
     if(item.purchased === false) {
         return (
-            <Card md={{ maxWidth: 80 }}>
+            <Grid container spacing={6}>
+                <Card md={{ maxWidth: 80 }}>
                 <CardContent>
                     <Typography variant="h5" component="div">
                         {item.name}
@@ -45,10 +46,13 @@ function ShoppingItem({ item, fetchShoppingList }) {
                     <Button onClick={ (e) => removeItem()}>Remove</Button>
                 </CardActions>
             </Card>
+            </Grid>
+           
         );
     } else {
         return (
-            <Card className="shoppingItem">
+            <Grid container spacing={6}>
+                <Card className="shoppingItem">
                 <CardContent>
                     <Typography variant="h5" component="div">
                         {item.name}
@@ -62,7 +66,9 @@ function ShoppingItem({ item, fetchShoppingList }) {
                         </Typography>
                     </CardActions>
                 </CardContent>
-            </Card>
+                </Card>
+            </Grid>
+            
         );
     }
 }
