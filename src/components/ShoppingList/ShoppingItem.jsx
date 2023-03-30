@@ -1,4 +1,10 @@
 import axios from 'axios';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+
 
 function ShoppingItem({ item, fetchShoppingList }) {
     
@@ -24,20 +30,38 @@ function ShoppingItem({ item, fetchShoppingList }) {
     
     if(item.purchased === false) {
         return (
-            <div className="shoppingItem">
-                <h3>{item.name}</h3>
-                <p>{item.quantity} {item.unit}</p>
-                <button onClick={ (e) => buyItem()}>Buy</button>
-                <button onClick={ (e) => removeItem()}>Remove</button>
-            </div>
+            <Card className="shoppingItem">
+                <CardContent>
+                    <Typography variant="h5" component="div">
+                        {item.name}
+                    </Typography>
+                    <Typography color="text-secondary">
+                        {item.quantity} {item.unit}
+                    </Typography>
+                </CardContent>
+                <CardActions>
+                    <Button onClick={ (e) => buyItem()}>Buy</Button>
+                    <Button onClick={ (e) => removeItem()}>Remove</Button>
+                </CardActions>
+            </Card>
         );
     } else {
         return (
-            <div className="shoppingItem">
-                <h3>{item.name}</h3>
-                <p>{item.quantity} {item.unit}</p>
-                <p>Purchased</p>
-            </div>
+            <Card className="shoppingItem">
+                <CardContent>
+                    <Typography variant="h5" component="div">
+                        {item.name}
+                    </Typography>
+                    <Typography color="text-secondary">
+                        {item.quantity} {item.unit}
+                    </Typography>
+                    <CardActions>
+                        <Typography>
+                            Purchased
+                        </Typography>
+                    </CardActions>
+                </CardContent>
+            </Card>
         );
     }
 }
