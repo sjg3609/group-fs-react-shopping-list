@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import ShoppingItem from './ShoppingItem';
 import ShoppingListForm from './ShoppingForm';
+import Grid from '@mui/material/Grid';
 
 function ShoppingList() {
     
@@ -50,7 +51,7 @@ function ShoppingList() {
             <h1>Shopping List:</h1>
             <button onClick={ (e) => resetItems(e)}>Reset</button>
             <button onClick={(e) => {clearAll(e)}}>Clear All</button>
-            <div id="shoppingList">
+            <Grid item xs={12} id="shoppingList">
                 {
                     shoppingListArray.map((item) => (
                         <ShoppingItem 
@@ -60,7 +61,7 @@ function ShoppingList() {
                         />
                     ))
                 }
-            </div>
+            </Grid>
         </div>
     );
         

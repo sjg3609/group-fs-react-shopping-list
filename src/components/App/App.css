@@ -6,7 +6,7 @@ main {
 .shoppingItem {
   border: 2px solid gray;
   border-radius: 4px;
-  width: 10%;
+  width: 40%;
   max-height: auto;
   margin: 10px;
   text-align: center;
