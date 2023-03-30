@@ -31,38 +31,42 @@ function ShoppingItem({ item, fetchShoppingList }) {
     
     if(item.purchased === false) {
         return (
-            <Card md={{ maxWidth: 80 }}>
-                <CardContent>
-                    <Typography variant="h5" component="div">
-                        {item.name}
-                    </Typography>
-                    <Typography color="text-secondary">
-                        {item.quantity} {item.unit}
-                    </Typography>
-                </CardContent>
-                <CardActions>
-                    <Button onClick={ (e) => buyItem()}>Buy</Button>
-                    <Button onClick={ (e) => removeItem()}>Remove</Button>
-                </CardActions>
-            </Card>
+            <Grid item xs={2} sm={4} md={4}>
+                <Card md={{ maxWidth: 80 }}>
+                    <CardContent>
+                        <Typography variant="h5" component="div">
+                            {item.name}
+                        </Typography>
+                        <Typography color="text-secondary">
+                            {item.quantity} {item.unit}
+                        </Typography>
+                    </CardContent>
+                    <CardActions>
+                        <Button onClick={ (e) => buyItem()}>Buy</Button>
+                        <Button onClick={ (e) => removeItem()}>Remove</Button>
+                    </CardActions>
+                </Card>
+            </Grid>
         );
     } else {
         return (
-            <Card className="shoppingItem">
-                <CardContent>
-                    <Typography variant="h5" component="div">
-                        {item.name}
-                    </Typography>
-                    <Typography color="text-secondary">
-                        {item.quantity} {item.unit}
-                    </Typography>
-                    <CardActions>
-                        <Typography>
-                            Purchased
+            <Grid item xs={2} sm={4} md={4}> 
+                <Card md={{ maxWidth: 80 }}>
+                    <CardContent>
+                        <Typography variant="h5" component="div">
+                            {item.name}
                         </Typography>
-                    </CardActions>
-                </CardContent>
-            </Card>
+                        <Typography color="text-secondary">
+                            {item.quantity} {item.unit}
+                        </Typography>
+                        <CardActions>
+                            <Typography>
+                                Purchased
+                            </Typography>
+                        </CardActions>
+                    </CardContent>
+                </Card>
+            </Grid>
         );
     }
 }
