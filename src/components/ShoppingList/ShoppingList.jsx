@@ -1,11 +1,10 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import ShoppingItem from './ShoppingItem';
+import ShoppingListForm from './ShoppingForm';
 
 function ShoppingList() {
-    let [itemName, setItemName] = useState('');
-    let [itemQuantity, setItemQuantity] = useState('');
-    let [itemUnit, setItemUnit] = useState('');
+    
     let [shoppingListArray, setShoppingListArray] = useState([]);
     
     const fetchShoppingList = () => {
@@ -17,24 +16,6 @@ function ShoppingList() {
         });
     }
 
-    const addShoppingItem = (event) => {
-        event.preventDefault();
-        axios.post('/shopping-list', {
-            name: itemName,
-            quantity: itemQuantity,
-            unit: itemUnit,
-        }).then((response) => {
-            setItemName('');
-            setItemQuantity('');
-            setItemUnit('');
-            fetchShoppingList();
-        }).catch((error) => {
-            console.log(`Error is POST ${error}`);
-            alert('something went wrong in POST');
-        })
-        
-    }
-
     const resetItems = (e) => {
         axios.put('/shopping-list/reset').then((response) => {
             console.log(response);
@@ -44,8 +25,6 @@ function ShoppingList() {
             alert('Something went wrong.');
         })
     }    
-
-    
     
     useEffect(() => {
         fetchShoppingList();
@@ -65,13 +44,9 @@ function ShoppingList() {
     return (
         <div>
             <h1>Add an Item</h1>
-            <form onSubmit={addShoppingItem}>
-                <input type="text" value={itemName} onChange={(event) => setItemName(event.target.value)} placeholder="Item"/>
-                <input type="number" value={itemQuantity} onChange={(event) => setItemQuantity(event.target.value)} placeholder="Quantity"/>
-                <input type="text" value={itemUnit} onChange={(event) => setItemUnit(event.target.value)} placeholder="Units"/>
-                <br/>
-                <input type="submit" value="Save"/>
-            </form>
+                <ShoppingListForm 
+                    fetchShoppingList={fetchShoppingList}
+                />
             <h1>Shopping List:</h1>
             <button onClick={ (e) => resetItems(e)}>Reset</button>
             <button onClick={(e) => {clearAll(e)}}>Clear All</button>
