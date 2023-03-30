@@ -4,7 +4,8 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-
+import { Container } from '@mui/system';
+import Grid from '@mui/material/Grid';
 
 function ShoppingItem({ item, fetchShoppingList }) {
     
@@ -30,7 +31,7 @@ function ShoppingItem({ item, fetchShoppingList }) {
     
     if(item.purchased === false) {
         return (
-            <Card className="shoppingItem">
+            <Card md={{ maxWidth: 80 }}>
                 <CardContent>
                     <Typography variant="h5" component="div">
                         {item.name}
