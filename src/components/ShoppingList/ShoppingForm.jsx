@@ -34,7 +34,7 @@ function ShoppingListForm({fetchShoppingList}) {
                 <TextField variant="standard" color="warning" value={itemName} onChange={(event) => setItemName(event.target.value)} placeholder="Item"/>
                 <TextField type="number" color="warning" variant="standard" value={itemQuantity} onChange={(event) => setItemQuantity(event.target.value)} placeholder="Quantity"/>
                 <TextField variant="standard" color="warning" value={itemUnit} onChange={(event) => setItemUnit(event.target.value)} placeholder="Units"/>
-                <Button onClick={addShoppingItem} variant="contained" size="large" color="warning" value="Save">Save</Button>
+                <Button onClick={addShoppingItem} variant="contained" size="large"  value="Save">Save</Button>
             </Box>
         </div>
     )

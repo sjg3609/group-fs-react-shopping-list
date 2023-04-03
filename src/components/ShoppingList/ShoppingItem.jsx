@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Container } from '@mui/system';
 import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
 
 function ShoppingItem({ item, fetchShoppingList }) {
     
@@ -31,8 +32,8 @@ function ShoppingItem({ item, fetchShoppingList }) {
     
     if(item.purchased === false) {
         return (
-            <Grid item xs={2} sm={4} md={4}>
-                <Card md={{ maxWidth: 80 }}>
+            <Grid direction="row" item sm={4} md={2}>
+                <Card sx={{ maxWidth: 275 }}>
                     <CardContent>
                         <Typography variant="h5" component="div">
                             {item.name}
@@ -42,16 +43,18 @@ function ShoppingItem({ item, fetchShoppingList }) {
                         </Typography>
                     </CardContent>
                     <CardActions>
-                        <Button onClick={ (e) => buyItem()}>Buy</Button>
-                        <Button onClick={ (e) => removeItem()}>Remove</Button>
+                        <Stack direction="row" spacing={2}>
+                            <Button onClick={ (e) => buyItem()}>Buy</Button>
+                            <Button onClick={ (e) => removeItem()}>Remove</Button>
+                        </Stack>
                     </CardActions>
                 </Card>
             </Grid>
         );
     } else {
         return (
-            <Grid item xs={2} sm={4} md={4}> 
-                <Card md={{ maxWidth: 80 }}>
+            <Grid direction="row" item sm={4} md={2}>
+                <Card sx={{ maxWidth: 275 }}>
                     <CardContent>
                         <Typography variant="h5" component="div">
                             {item.name}
@@ -60,9 +63,12 @@ function ShoppingItem({ item, fetchShoppingList }) {
                             {item.quantity} {item.unit}
                         </Typography>
                         <CardActions>
-                            <Typography>
-                                Purchased
-                            </Typography>
+                            <div className="typographyDiv">
+                                <Typography variant="subtitle1">
+                                     Purchased
+                                </Typography>
+                            </div>
+                            
                         </CardActions>
                     </CardContent>
                 </Card>
