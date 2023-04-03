@@ -27,3 +27,10 @@ main {
   text-align: center;
 
 }
+
+.typographyDiv {
+  flex: auto;
+  justify-content: baseline;
+}
+
+
